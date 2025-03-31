@@ -78,7 +78,8 @@
             this.CB_Implementation.FormattingEnabled = true;
             this.CB_Implementation.Items.AddRange(new object[] {
             "Sorted Array",
-            "Unordered Array"});
+            "Unordered Array",
+            "Unordered Linked"});
             this.CB_Implementation.Location = new System.Drawing.Point(5, 45);
             this.CB_Implementation.Name = "CB_Implementation";
             this.CB_Implementation.Size = new System.Drawing.Size(162, 26);

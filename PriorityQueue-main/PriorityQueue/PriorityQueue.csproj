@@ -59,6 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueOverflowException.cs" />
     <Compile Include="QueueUnderflowException.cs" />
+    <Compile Include="UnorderedLinkedPriorityQueue.cs" />
     <Compile Include="UnorderedArrayPriorityQueue.cs" />
     <Compile Include="SortedArrayPriorityQueue.cs" />
     <EmbeddedResource Include="QueueManager.resx">

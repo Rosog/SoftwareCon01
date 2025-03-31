@@ -31,12 +31,11 @@ namespace PriorityQueue
                 case 1:
                     InitUnorderedArrayQueue();
                     break;
+                case 2:
+                    InitUnorderedLinkedQueue();
+                    break;
             }
 
-            //if (CB_Implementation.SelectedIndex == 0)
-            //{
-            //    InitSortedArrayQueue();
-            //}
         }
         
         private void InitSortedArrayQueue()
@@ -49,6 +48,12 @@ namespace PriorityQueue
         {
             queue = new UnorderedArrayPriorityQueue<Person>(8);
             Lbl_Output.Text = "New unordered array priority queue created";
+        }
+
+        private void InitUnorderedLinkedQueue()
+        {
+            queue = new UnorderedLinkedPriorityQueue<Person>();
+            Lbl_Output.Text = "New unordered linked priority queue created";
         }
 
 
