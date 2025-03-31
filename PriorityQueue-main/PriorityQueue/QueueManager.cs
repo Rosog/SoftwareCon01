@@ -23,10 +23,20 @@ namespace PriorityQueue
             Panel_Actions.Visible = true;
             Panel_Output.Visible = true;
 
-            if (CB_Implementation.SelectedIndex == 0)
+            switch (CB_Implementation.SelectedIndex)
             {
-                InitSortedArrayQueue();
+                case 0:
+                    InitSortedArrayQueue();
+                    break;
+                case 1:
+                    InitUnorderedArrayQueue();
+                    break;
             }
+
+            //if (CB_Implementation.SelectedIndex == 0)
+            //{
+            //    InitSortedArrayQueue();
+            //}
         }
         
         private void InitSortedArrayQueue()
@@ -34,6 +44,13 @@ namespace PriorityQueue
             queue = new SortedArrayPriorityQueue<Person>(8);
             Lbl_Output.Text = "New sorted array priority queue created";
         }
+
+        private void InitUnorderedArrayQueue()
+        {
+            queue = new UnorderedArrayPriorityQueue<Person>(8);
+            Lbl_Output.Text = "New unordered array priority queue created";
+        }
+
 
         private void Btn_AddQueue_Click(object sender, System.EventArgs e)
         {
