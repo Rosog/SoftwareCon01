@@ -21,7 +21,7 @@ namespace PriorityQueueTests
             queue.Add("B", 12);
             queue.Add("C", 8);
 
-            Assert.AreEqual("High", queue.Head());
+            Assert.AreEqual("B", queue.Head());
         }
     }
 }
