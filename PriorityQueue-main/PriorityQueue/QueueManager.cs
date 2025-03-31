@@ -37,6 +37,9 @@ namespace PriorityQueue
                 case 3:
                     InitSortedLinkedQueue();
                     break;
+                case 4:
+                    InitHeapQueue();
+                    break;
             }
 
         }
@@ -63,6 +66,11 @@ namespace PriorityQueue
         {
             queue = new SortedLinkedPriorityQueue<Person>();
             Lbl_Output.Text = "New sorted linked priority queue created";
+        }
+        private void InitHeapQueue()
+        {
+            queue = new HeapPriorityQueue<Person>(8);
+            Lbl_Output.Text = "New heap priority queue created";
         }
 
 
