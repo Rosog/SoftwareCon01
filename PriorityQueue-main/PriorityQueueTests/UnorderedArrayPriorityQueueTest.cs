@@ -3,7 +3,7 @@ using PriorityQueue;
 
 namespace PriorityQueueTests
 {
-    public class UnorderedArrayPriorityQueueTest
+    public class SortedArrayPriorityQueueTest
     {
 
         private PriorityQueue<string> queue;
@@ -11,7 +11,7 @@ namespace PriorityQueueTests
         [SetUp]
         public void Setup()
         {
-            queue = new UnorderedArrayPriorityQueue<string>(10);
+            queue = new SortedArrayPriorityQueue<string>(8);
         }
 
         [Test]
@@ -53,9 +53,21 @@ namespace PriorityQueueTests
         }
 
         [Test]
+        public void StartsEmpty()
+        {
+            Assert.IsTrue(queue.IsEmpty());
+        }
+
+        [Test]
         public void ExceptionWhenEmpty()
         {
             Assert.Throws<QueueUnderflowException>(() => queue.Head());
+        }
+
+        [Test]
+        public void ExceptionWhenEmptyRemove()
+        {
+            Assert.Throws<QueueUnderflowException>(() => queue.Remove());
         }
 
         [Test]
