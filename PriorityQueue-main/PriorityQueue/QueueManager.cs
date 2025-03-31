@@ -34,6 +34,9 @@ namespace PriorityQueue
                 case 2:
                     InitUnorderedLinkedQueue();
                     break;
+                case 3:
+                    InitSortedLinkedQueue();
+                    break;
             }
 
         }
@@ -54,6 +57,12 @@ namespace PriorityQueue
         {
             queue = new UnorderedLinkedPriorityQueue<Person>();
             Lbl_Output.Text = "New unordered linked priority queue created";
+        }
+
+        private void InitSortedLinkedQueue()
+        {
+            queue = new SortedLinkedPriorityQueue<Person>();
+            Lbl_Output.Text = "New sorted linked priority queue created";
         }
 
 

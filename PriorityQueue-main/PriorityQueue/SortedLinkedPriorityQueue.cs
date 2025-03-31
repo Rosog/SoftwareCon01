@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace PriorityQueue
 {
-    public class UnorderedLinkedPriorityQueue<T> : PriorityQueue<T>
+    public class SortedLinkedPriorityQueue<T> : PriorityQueue<T>
     {
 
         private Node head;
@@ -23,7 +23,7 @@ namespace PriorityQueue
 
         }
 
-        public UnorderedLinkedPriorityQueue()
+        public SortedLinkedPriorityQueue()
         {
             head = null;
         }
@@ -34,28 +34,29 @@ namespace PriorityQueue
             {
                 throw new QueueUnderflowException();
             }
-            // Loop through the nodes to find the highest priority element
-            Node currentNode = head;
-            Node highestNode = head;
-            while (currentNode != null)
-            {
-                if(currentNode.Priority > highestNode.Priority)
-                {
-                    highestNode = currentNode;
-                }
-                currentNode = currentNode.NextNode;
-            }
-            return highestNode.Item;
+            // Just return head as is sorted
+            return head.Item;
         }
 
         public void Add(T item, int priority)
         {
             Node newNode = new Node(item, priority);
-            if (head != null)
+            // Set Head to New Highest Value
+            if (head == null || priority > head.Priority)
             {
                 newNode.NextNode = head;
+                head = newNode;
+            } else
+            {
+                // Move through the list in order to find out where new value belongs
+                Node currentNode = head;
+                while (currentNode.NextNode != null && currentNode.NextNode.Priority >= priority)
+                {
+                    currentNode = currentNode.NextNode;
+                }
+                newNode.NextNode = currentNode.NextNode;
+                currentNode.NextNode = newNode;
             }
-            head = newNode;
         }
 
         public void Remove()
@@ -64,31 +65,7 @@ namespace PriorityQueue
             {
                 throw new QueueUnderflowException();
             }
-            // Find the highest priority element
-            Node currentNode = head;
-            Node highestNode = head;
-            Node lastHighest = null;
-            Node last = null;
-            while (currentNode != null)
-            {
-                if (currentNode.Priority > highestNode.Priority)
-                {
-                    // Replace Highest Element With New Value and Second With Previous
-                    highestNode = currentNode;
-                    lastHighest = last;
-                }
-                // Advance to Next Node
-                last = currentNode;
-                currentNode = currentNode.NextNode;
-            }
-            if (lastHighest == null)
-            {
-                head = head.NextNode;
-            } else
-            {
-                lastHighest.NextNode = highestNode.NextNode;
-            }
-
+            head = head.NextNode;
         }
 
         public bool IsEmpty()
