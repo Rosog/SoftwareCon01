@@ -24,12 +24,11 @@ namespace PriorityQueue
             }
             // Loop through the array to find the highest priority element
             int highestPriorityIndex = 0;
-            int highestPriority = -1;
-            for(int i=0; i<tailIndex; i++)
+            for(int i=0; i<tailIndex+1; i++)
             {
-                if (storage[i].Priority > highestPriority)
+                if (storage[i].Priority > storage[highestPriorityIndex].Priority)
                 {
-                    highestPriorityIndex = i - 1;
+                    highestPriorityIndex = i;
                 }
             }
             return storage[highestPriorityIndex].Item;
@@ -56,12 +55,11 @@ namespace PriorityQueue
             }
             // Loop through the array to find the highest priority element
             int highestPriorityIndex = 0;
-            int highestPriority = -1;
-            for (int i = 0; i < tailIndex; i++)
+            for (int i = 0; i < tailIndex + 1; i++)
             {
-                if (storage[i].Priority > highestPriority)
+                if (storage[i].Priority > storage[highestPriorityIndex].Priority)
                 {
-                    highestPriorityIndex = i - 1;
+                    highestPriorityIndex = i;
                 }
             }
             // Upon finding the element shift every along until the highest priority element is at the end
